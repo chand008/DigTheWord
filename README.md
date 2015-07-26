@@ -1,7 +1,7 @@
 # DigTheWord
 Copyright (C) 2015 Chandhni Kannatintavida
 
-This project is licensed under the "MIT License". Please see the file "License.md"(https://github.com/chand008/Dig-The-Word/blob/master/License.md) in this distribution for license terms.
+This project is licensed under the "MIT License". Please see the file "License.md"(https://github.com/chand008/DigTheWord/blob/master/License.md) in this distribution for license terms.
 
 This is an open source android word game where the user has to guess the correct word by filling the blanks.
 
