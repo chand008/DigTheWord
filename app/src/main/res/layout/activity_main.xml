@@ -1,0 +1,89 @@
+
+<!--
+/************************************************************************************
+ *   Copyright (C) 2015 Chandhni Kannatintavida                                     *
+ *   This project is licensed under the "MIT License". Please see the file          *
+ *   "License.md"(https://github.com/chand008/Dig-The-Word/blob/master/License.md)  *
+ *   in this distribution for license terms.                                        *
+ *                                                                                  *
+ ************************************************************************************/
+-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="#ff0a0181">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/signintitle"
+        android:id="@+id/textView"
+        android:textColor="#ffffffff"
+        android:background="#ffff702a"
+        android:layout_marginBottom="45dp"
+        android:layout_above="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Username"
+        android:width="320dp"
+        android:inputType="text"
+        android:textColor="#ffffffff"
+        android:background="#ff61e9eb"
+        android:layout_above="@+id/loginbutton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="65dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/usernametitle"
+        android:id="@+id/textView2"
+        android:textColor="#ffffffff"
+        android:background="#ffff7109"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/Username"
+        android:layout_alignStart="@+id/Username" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loginbutton"
+        android:id="@+id/loginbutton"
+        android:onClick="onclick"
+        android:background="#ff318a0d"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="172dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Welcome!!!"
+        android:id="@+id/tvwelcome"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="71dp"
+        android:textColor="#fef6863e" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Dig The Word"
+        android:id="@+id/tvappname"
+        android:layout_below="@+id/tvwelcome"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp"
+        android:textColor="#ffff142e" />
+
+</RelativeLayout>
