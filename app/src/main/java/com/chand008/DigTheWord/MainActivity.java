@@ -37,13 +37,22 @@ public class MainActivity extends ActionBarActivity
         //*create instance of button and edit text from activity_main.xml
         Button button = (Button) findViewById(R.id.loginbutton);
 
-        /* need to use openOrCreateDatabase method ,
+        /*
+        * START create/open database
+        * need to use openOrCreateDatabase method ,
         * otherwise you need to have an exception catching to take care of the database already exist situation.
         */
 
         SQLiteDatabase database = openOrCreateDatabase("MyDBName.db", Context.MODE_PRIVATE, null);
         mydb.createDatabase(database);
 
+        /*
+        * END create/open database
+        */
+
+        /*
+        * START action when login button is clicked
+        */
         button.setOnClickListener(new View.OnClickListener()
         {
             @TargetApi(Build.VERSION_CODES.GINGERBREAD)
@@ -56,7 +65,7 @@ public class MainActivity extends ActionBarActivity
                  */
                 String etuname1, etuname2;
                 EditText etusername = (EditText) findViewById(R.id.Username);
-                //  get the value of username the user entered
+                //*   get the value of username the user entered
                 etuname1 = etusername.getText().toString().trim();
 
                 if (mydb.getDataString(etuname1).equals("unknown"))
@@ -77,19 +86,23 @@ public class MainActivity extends ActionBarActivity
 
                 Intent intent = new Intent("android.intent.action.DISPLAY");
 
-                //*pass extras for teh next activity - 07/12/2015
+                //* START pass extras for teh next activity - 07/12/2015
                 intent.putExtra("logged_in_user", mydb.getDataString(etuname1));
-                //*pass extras for teh next activity - 07/12/2015
+                //* END pass extras for teh next activity - 07/12/2015
 
-                //*close DB - prevent leak 07/18 - 10:30 am - no database leak since
+                //* START close DB - prevent leak 07/18 - 10:30 am - no database leak since
                 mydb.close();
-                //*close DB - prevent leak 07/18 - 10:30 am
+                //*END close DB - prevent leak 07/18 - 10:30 am
 
                 startActivity(intent);
 
 
             }
         });
+
+        /*
+        * END action when login button is clicked
+        */
     }
 
     @Override

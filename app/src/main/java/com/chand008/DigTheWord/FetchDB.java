@@ -177,6 +177,7 @@ public class FetchDB extends SQLiteOpenHelper
         if (res.getCount()!=0)
         {
             username = res.getString(0);
+
         }
         else
         {
@@ -189,6 +190,43 @@ public class FetchDB extends SQLiteOpenHelper
 
         return username;
 
+    }
+    /*
+    * This method updates the score of the user when back button is hit or when user completes
+    * a level.
+     */
+    public Boolean scoreUpdate(String uname, int score, int level)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery("select username,score from user where uname=" + "'" + uname + "'", null);
+        res.moveToFirst();
+        int dbScore =0;
+        if (res.getCount()!=0)
+        {
+            dbScore = Integer.valueOf(res.getString(1));
+            if(score > dbScore)
+            {
+                try
+                {
+                    db.execSQL(
+                            " UPDATE user"
+                                    + "SET score="+score+"(where uname = "+"'"+uname+"'" +"and level="+level+")");
+
+
+                }
+                catch(SQLException e) {
+                    System.out.println(e);
+                }
+            }
+        }
+        else
+        {
+            return false;
+        }
+
+        //*CLOSE cursor
+        res.close();
+        return true;
     }
 
     //*GET NEXT WORD ID

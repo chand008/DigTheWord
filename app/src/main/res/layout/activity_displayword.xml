@@ -19,17 +19,6 @@
     android:background="#7c4545f9">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/hinttext"
-        android:id="@+id/Bhint"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="#ff099d0c" />
-
-    <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -91,10 +80,10 @@
         android:layout_height="wrap_content"
         android:text="TRY"
         android:id="@+id/Benter"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="64dp"
-        android:background="#ffbc2612" />
+        android:background="#ffbc2612"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/TvLevel"
+        android:layout_alignStart="@+id/TvLevel" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -126,5 +115,59 @@
         android:layout_alignStart="@+id/Tvwordlabel"
         android:textColor="#ff2609ff"
         android:textStyle="italic" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/TvLevel"
+        android:layout_alignBottom="@+id/Bhint"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/TvScore"
+        android:layout_alignTop="@+id/Bnextbutton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/Tvmsg"
+        android:layout_below="@+id/Benter"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="WRONG"
+        android:id="@+id/Tvattempt"
+        android:layout_below="@+id/Tvmsg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp"
+        android:textColor="#ffd71d16"
+        android:textColorHighlight="#ffff0311"
+        android:textSize="@android:dimen/app_icon_size" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HINT"
+        android:id="@+id/Bhint"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#ff2e781f"
+        android:textColor="#fffaf2ff" />
 
 </RelativeLayout>
