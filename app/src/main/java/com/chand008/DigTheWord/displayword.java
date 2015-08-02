@@ -24,7 +24,8 @@ import com.chand008.DigTheWord.R;
 public class displayword extends Activity {
 
     String word_to_guess,wtgBlank,level;
-    int score=0,noOfTry=5;
+    int score=0,noOfTry=5,levelno=1;
+    int count=0;
     String user_name = null,Score="Score",attempt="*****";
 
     @Override
@@ -50,12 +51,11 @@ public class displayword extends Activity {
         tvusername.setText(user_name);
          //*END get extras from previous activity - 07122015 01:25 PM PST
 
-        level="Level"+" " +Integer.toString(1);
+        level="Level"+" " +Integer.toString(levelno);
         // Score= Score+" " +Integer.toString(score);
         final TextView TvLevel = (TextView) findViewById(R.id.TvLevel);
         TvLevel.setText(level);
-        final TextView TvScore = (TextView) findViewById(R.id.TvScore);
-        TvScore.setText(Score);
+
         final TextView Tvattempt =(TextView) findViewById(R.id.Tvattempt);
         Tvattempt.setText(attempt);
         final TextView Tvmsg =(TextView) findViewById(R.id.Tvmsg);
@@ -78,7 +78,8 @@ public class displayword extends Activity {
         final FetchDB mydb = new FetchDB(this);
         final TextView[] tvword = new TextView[1];
         tvword[0] = (TextView) findViewById(R.id.Tvword);
-        word_to_guess = mydb.getWordForGame(mydb.getWordIdForGame(1));
+        word_to_guess = mydb.getWordForGame(mydb.getWordIdForGame(levelno));
+       // word_to_guess = mydb.getWordForGame(mydb.getWordIdForGame(1));
         //* END get word from database
 
         //* START call method to blank a letter and set the word with letter blank
@@ -88,6 +89,17 @@ public class displayword extends Activity {
 
         /*
          *END display word and enter word
+        */
+
+        /*
+        * START get score from database
+        */
+        score = mydb.scoreUpdate(user_name,score,levelno);
+        Score = Score +" "+ Integer.toString(score);
+        final TextView TvScore = (TextView) findViewById(R.id.TvScore);
+        TvScore.setText(Score);
+         /*
+        * ENDget score from database
         */
 
         Button nextword = new Button(this);
@@ -102,8 +114,10 @@ public class displayword extends Activity {
             @Override
             public void onClick(View v)
             {
+                Tvmsg.setText("");
                 //* START get word from database
-                word_to_guess = mydb.getWordForGame(mydb.getWordIdForGame(1));
+               // word_to_guess = mydb.getWordForGame(mydb.getWordIdForGame(1));
+                word_to_guess = mydb.getWordForGame(mydb.getWordIdForGame(levelno));
                 //* END get word from database
                 //*call method to blank a letter in word and display it
                // tvword[0].setText(word_to_guess);
@@ -116,7 +130,9 @@ public class displayword extends Activity {
                 tvhinttext.setText(null);
                 //TextView TvScore = (TextView) findViewById(R.id.TvScore);
                 TvScore.setText(Score);
-                Tvmsg.setText("");
+
+                level= "Level "+Integer.toString(levelno);
+                TvLevel.setText(level);
             }
         });
         /*
@@ -134,7 +150,8 @@ public class displayword extends Activity {
                 etgwrd[0] = etguessword.getText().toString();
 
                 //*compare to see if the word entered by user mathes the word from db
-                if (etgwrd[0].equals(word_to_guess)) {
+                if (etgwrd[0].equals(word_to_guess))
+                {
                     tvresult[0].setText("Congrats!!! correct dig!!!");
                     score = score + 100;
                     Score= "Score "+Integer.toString(score);
@@ -144,6 +161,23 @@ public class displayword extends Activity {
                         System.out.println("Update on usage flag was successful");
                     } else {
                         System.out.println("Update on usage flag was NOT successful");
+                    }
+                    count++;
+                    if (count==5)
+                    {
+                        count=0;
+                        Boolean x = mydb.insertScore(user_name,score,levelno);
+                        if(x)
+                        {
+                            levelno++;
+                            level= "Level "+Integer.toString(levelno);
+                            TvLevel.setText(level);
+                            Tvmsg.setText("Congrats u have DIGGED into next Level!!!");
+                        }
+                        else
+                        {
+                            restart();
+                        }
                     }
                 }
                 else
@@ -158,6 +192,7 @@ public class displayword extends Activity {
                 }
                 TvScore.setText(Score);
                 Tvattempt.setText(attempt);
+
             }
 
         });
@@ -191,7 +226,8 @@ public class displayword extends Activity {
     /*
     * START BACK buttton : action when hint button is clicked
     */
-    public void onclick(View view){
+    public void onclick(View view)
+    {
         //* Method invoked when BACK button is clicked
         restart();
     }
@@ -265,7 +301,7 @@ public class displayword extends Activity {
                 if (mydb.setAllFlag())
                 {
                     System.out.println("Reset all flags");
-                   // Boolean r = mydb.scoreUpdate(user_name,score,1);
+                    score = mydb.scoreUpdate(user_name,score,levelno);
                     noOfTry=5;
                     score=0;
                 } else
@@ -284,19 +320,21 @@ public class displayword extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // *Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_displayword, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        /*
+        *Handle action bar item clicks here. The action bar will
+        *automatically handle clicks on the Home/Up button, so long
+        *as you specify a parent activity in AndroidManifest.xml.
+        */
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        //*noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }

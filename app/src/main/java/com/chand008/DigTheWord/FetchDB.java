@@ -99,6 +99,78 @@ public class FetchDB extends SQLiteOpenHelper
             db.execSQL("insert into worddb values('GLEAN','GATHER',2,3,'N',6)");
             db.execSQL("insert into worddb values('OSSIFY','OUTDATED',2,3,'N',7)");
 
+            //new set of words
+            db.execSQL("insert into worddb values('WAX','gradually increase in intensity or size',1,1,'N',8)");
+            db.execSQL("insert into worddb values('AMOK','frenzied or uncontrolled state; as fans meet their rockstar',1,1,'N',9)");
+            db.execSQL("insert into worddb values('JUNTA','military takeover or aggressive takeover by a group',2,2,'N',10)");
+            db.execSQL("insert into worddb values('MELEE','wild, confusing fight',2,2,'N',11)");
+            db.execSQL("insert into worddb values('CANKER','cancer',3,3,'N',12)");
+            db.execSQL("insert into worddb values('COEVAL','coexisting, contemporary',3,3,'N',13)");
+            db.execSQL("insert into worddb values('FECUND','foetus',3,3,'N',14)");
+            db.execSQL("insert into worddb values('FLEECE','to deceive',3,3,'N',15)");
+            db.execSQL("insert into worddb values('HEYDEY','prime of a period',3,3,'N',16)");
+            db.execSQL("insert into worddb values('VIRAGO','violent ill-tempered women',3,3,'N',17)");
+            db.execSQL("insert into worddb values('EXHORT','encourage',3,3,'N',18)");
+            db.execSQL("insert into worddb values('FERRET','rig into something',3,3,'N',19)");
+            db.execSQL("insert into worddb values('ERRANT','to stray around',3,3,'N',20)");
+            db.execSQL("insert into worddb values('ERRAND','to do something',3,3,'N',21)");
+            db.execSQL("insert into worddb values('PONDER','contemplate',3,3,'N',22)");
+            db.execSQL("insert into worddb values('MACABRE','massacre',4,4,'N',23)");
+            db.execSQL("insert into worddb values('DIVULGE','federal police divulge details',4,4,'N',24)");
+            db.execSQL("insert into worddb values('POLEMIC','written or verbal attack on someone',4,4,'N',25)");
+            db.execSQL("insert into worddb values('HARRIED','harassed',4,4,'N',26)");
+            db.execSQL("insert into worddb values('ASKANCE','suspicious - think about old couple watching goth teens',4,4,'N',27)");
+            db.execSQL("insert into worddb values('PREEMPT','finish before someone get hold of anything',4,4,'N',28)");
+            db.execSQL("insert into worddb values('REPLETE','full',4,4,'N',29)");
+            db.execSQL("insert into worddb values('PAUCITY','lack of something; think of time to pause, we dont have anything',4,4,'N',30)");
+            db.execSQL("insert into worddb values('SANGUINE','optimistic',5,6,'N',31)");
+            db.execSQL("insert into worddb values('REGICIDE','murder of king or queen; murder of ruler',5,6,'N',32)");
+            db.execSQL("insert into worddb values('HEGEMONY','dominance of a territory',5,6,'N',33)");
+            db.execSQL("insert into worddb values('EDIFYING','intellectually uplifting',5,6,'N',34)");
+            db.execSQL("insert into worddb values('CONSTRUE','interpret',5,6,'N',35)");
+            db.execSQL("insert into worddb values('EXACTING','demanding accuracy',5,6,'N',36)");
+            db.execSQL("insert into worddb values('OPULENCE','wealth which show no bounds',5,6,'N',37)");
+            db.execSQL("insert into worddb values('ESOTERIC','arcane, abstruse, obtuse',5,6,'N',38)");
+            db.execSQL("insert into worddb values('SPECIOUS','spurious',5,6,'N',39)");
+            db.execSQL("insert into worddb values('PITTANCE','small amount of money',5,6,'N',40)");
+            db.execSQL("insert into worddb values('BEATIFIC','blissfully happy',5,6,'N',41)");
+            db.execSQL("insert into worddb values('EMPIRICAL','earned from experience',6,7,'N',42)");
+            db.execSQL("insert into worddb values('SYCOPHANT','person who will do anything or favors for personal gain',6,7,'N',43)");
+            db.execSQL("insert into worddb values('SAGACIOUS','wiseman; think about sage',6,7,'N',44)");
+            db.execSQL("insert into worddb values('EXCORIATE','chastise, upbraid, castigate, lambast, chide, rebuke, reprimand',6,7,'N',45)");
+            db.execSQL("insert into worddb values('MENDACITY','untruthfulness',6,7,'N',46)");
+            db.execSQL("insert into worddb values('MALADROIT','clumsy',6,7,'N',47)");
+            db.execSQL("insert into worddb values('OLIGARCHS','rich society where power is centered around a few; plutocracy',6,7,'N',48)");
+            db.execSQL("insert into worddb values('BELLICOSE','aggressive, warlike',6,7,'N',49)");
+            db.execSQL("insert into worddb values('DISPARATE','different, dissimilar',6,7,'N',50)");
+            db.execSQL("insert into worddb values('CHECKERED','black-marked due to unfortunate or disreputable happenings',6,7,'N',51)");
+            db.execSQL("insert into worddb values('INVECTIVE','abusive',6,7,'N',52)");
+            db.execSQL("insert into worddb values('DESECRATE','willfully destroy or violate a holy place; think of it as de-destroy sacred place',6,7,'N',53)");
+            db.execSQL("insert into worddb values('VICARIOUS','feel oneself the sensations or emotions felt by someone mostly near or dear',6,7,'N',54)");
+            db.execSQL("insert into worddb values('EXORBITANT','expensive',7,8,'N',55)");
+            db.execSQL("insert into worddb values('DILETTANTE','amateur',7,8,'N',56)");
+            db.execSQL("insert into worddb values('NONPLUSSED','confused on how to react',7,8,'N',57)");
+            db.execSQL("insert into worddb values('PUGNACIOUS','ready to fight',7,8,'N',58)");
+            db.execSQL("insert into worddb values('HODGEPODGE','mix of things',7,8,'N',59)");
+            db.execSQL("insert into worddb values('CADAVEROUS','haggard, emaciated, gaunt',7,8,'N',60)");
+            db.execSQL("insert into worddb values('INELUCTABLE','inevitable',8,8,'N',61)");
+            db.execSQL("insert into worddb values('PERQUISITES','perks',8,8,'N',62)");
+            db.execSQL("insert into worddb values('DELETERIOUS','harmful to living creatures',8,8,'N',63)");
+            db.execSQL("insert into worddb values('EFFICACIOUS','efficient, providing desired results',8,8,'N',64)");
+            db.execSQL("insert into worddb values('IGNOMINIOUS','embarrassing',8,8,'N',65)");
+            db.execSQL("insert into worddb values('MAGNANIMOUS','showing spirit and generous to a person or group, usually rival',8,8,'N',66)");
+            db.execSQL("insert into worddb values('EXTENUATING','forgivable; think about exonerating (free from charges)',8,8,'N',67)");
+            db.execSQL("insert into worddb values('INSALUBRIOUS','insanitory',8,9,'N',68)");
+            db.execSQL("insert into worddb values('IMPONDERABLE','not contemplatable or impossible to estimate or figure out',8,9,'N',69)");
+            db.execSQL("insert into worddb values('SURREPTITIOUS','secretive',9,9,'N',70)");
+            db.execSQL("insert into worddb values('PRIMOGENITURE','first born child',9,9,'N',71)");
+            db.execSQL("insert into worddb values('DISINTERESTED','unbiased, neutral',9,9,'N',72)");
+            db.execSQL("insert into worddb values('SANCTIMONIOUS','thought that one is better sanctified than other; holier-than-thou',9,9,'N',73)");
+            db.execSQL("insert into worddb values('UNCONSCIONABLE','not agreeable by one’s conscience',9,9,'N',74)");
+            db.execSQL("insert into worddb values('ANTHROPOMORPHIC','human like characteristics',10,10,'N',75)");
+
+            //new set of words
+
         }
         catch(SQLException e) {
             System.out.println(e);
@@ -151,6 +223,39 @@ public class FetchDB extends SQLiteOpenHelper
             //*CLOSE db -07/18 10:10 am
             return true;
         }
+        @TargetApi(Build.VERSION_CODES.GINGERBREAD)
+        public boolean insertScore  (String uname, int score, int level)
+        {
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor res =  db.rawQuery("select uname,score from user where uname=" + "'" + uname + "'", null);
+            res.moveToFirst();
+            int dbScore =0;
+            if (res.getCount()!=0)
+            {
+                dbScore = Integer.valueOf(res.getString(1));
+                if(score > dbScore)
+                {
+                    try
+                    {
+                        db.execSQL(
+                               // " UPDATE user SET score="+score+" where uname = "+"'"+uname+"'");
+                                    "INSERT INTO user VALUES("+"'"+uname+"',"+score+","+level);
+                        // +"and level="+level+"");
+
+
+                    }
+                    catch(SQLException e) {
+                        System.out.println(e);
+                    }
+                }
+            }
+
+            //*CLOSE cursor
+            res.close();
+            return true;
+
+
+        }
 
         public Cursor getData(String uname)
         {
@@ -195,10 +300,10 @@ public class FetchDB extends SQLiteOpenHelper
     * This method updates the score of the user when back button is hit or when user completes
     * a level.
      */
-    public Boolean scoreUpdate(String uname, int score, int level)
+    public int scoreUpdate(String uname, int score, int level)
     {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery("select username,score from user where uname=" + "'" + uname + "'", null);
+        Cursor res =  db.rawQuery("select uname,score from user where uname=" + "'" + uname + "'", null);
         res.moveToFirst();
         int dbScore =0;
         if (res.getCount()!=0)
@@ -209,8 +314,8 @@ public class FetchDB extends SQLiteOpenHelper
                 try
                 {
                     db.execSQL(
-                            " UPDATE user"
-                                    + "SET score="+score+"(where uname = "+"'"+uname+"'" +"and level="+level+")");
+                            " UPDATE user SET score="+score+" where uname = "+"'"+uname+"'");
+                                    // +"and level="+level+"");
 
 
                 }
@@ -219,14 +324,10 @@ public class FetchDB extends SQLiteOpenHelper
                 }
             }
         }
-        else
-        {
-            return false;
-        }
 
         //*CLOSE cursor
         res.close();
-        return true;
+        return dbScore;
     }
 
     //*GET NEXT WORD ID
