@@ -99,7 +99,7 @@ public class displayword extends Activity {
         final TextView TvScore = (TextView) findViewById(R.id.TvScore);
         TvScore.setText(Score);
          /*
-        * ENDget score from database
+        * END get score from database
         */
 
         Button nextword = new Button(this);
