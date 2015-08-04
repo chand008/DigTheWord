@@ -79,6 +79,7 @@ public class displayword extends Activity {
         final TextView[] tvword = new TextView[1];
         tvword[0] = (TextView) findViewById(R.id.Tvword);
         word_to_guess = mydb.getWordForGame(mydb.getWordIdForGame(levelno));
+       // word_to_guess = mydb.getWordForGame(mydb.getWordId(levelno));
        // word_to_guess = mydb.getWordForGame(mydb.getWordIdForGame(1));
         //* END get word from database
 
@@ -118,6 +119,8 @@ public class displayword extends Activity {
                 //* START get word from database
                // word_to_guess = mydb.getWordForGame(mydb.getWordIdForGame(1));
                 word_to_guess = mydb.getWordForGame(mydb.getWordIdForGame(levelno));
+                //word_to_guess = mydb.getWordForGame(mydb.getWordId(levelno));
+
                 //* END get word from database
                 //*call method to blank a letter in word and display it
                // tvword[0].setText(word_to_guess);
@@ -150,49 +153,49 @@ public class displayword extends Activity {
                 etgwrd[0] = etguessword.getText().toString();
 
                 //*compare to see if the word entered by user mathes the word from db
-                if (etgwrd[0].equals(word_to_guess))
+                if (etgwrd[0].equals(""))
                 {
-                    tvresult[0].setText("Congrats!!! correct dig!!!");
-                    score = score + 100;
-                    Score= "Score "+Integer.toString(score);
+                    tvresult[0].setText("The word cannot be blank! Please try again!!");
+                }
+                else
+                {
+                    if (etgwrd[0].equalsIgnoreCase(word_to_guess)) {
+                        tvresult[0].setText("Congrats!!! correct dig!!!");
+                        score = score + 100;
+                        Score = "Score " + Integer.toString(score);
 
-                    //set a flag so that this word is not repeated for the same session
-                    if (mydb.setFlag(word_to_guess)) {
-                        System.out.println("Update on usage flag was successful");
-                    } else {
-                        System.out.println("Update on usage flag was NOT successful");
-                    }
-                    count++;
-                    if (count==5)
-                    {
-                        count=0;
-                        Boolean x = mydb.insertScore(user_name,score,levelno);
-                        if(x)
-                        {
-                            levelno++;
-                            level= "Level "+Integer.toString(levelno);
-                            TvLevel.setText(level);
-                            Tvmsg.setText("Congrats u have DIGGED into next Level!!!");
+                        //set a flag so that this word is not repeated for the same session
+                        if (mydb.setFlag(word_to_guess)) {
+                            System.out.println("Update on usage flag was successful");
+                        } else {
+                            System.out.println("Update on usage flag was NOT successful");
                         }
-                        else
-                        {
+                        count++;
+                        if (count == 5) {
+                            count = 0;
+                            Boolean x = mydb.insertScore(user_name, score, levelno);
+                            if (x) {
+                                levelno++;
+                                level = "Level " + Integer.toString(levelno);
+                                TvLevel.setText(level);
+                                Tvmsg.setText("Congrats u have DIGGED into next Level!!!");
+                            } else {
+                                restart();
+                            }
+                        }
+
+                    } else {
+                        tvresult[0].setText("Incorrect word");
+                        noOfTry -= 1;
+                        editAttempt(noOfTry);
+                        if (noOfTry == 0) {
                             restart();
                         }
                     }
                 }
-                else
-                {
-                    tvresult[0].setText("Incorrect word");
-                    noOfTry -= 1;
-                    editAttempt(noOfTry);
-                    if (noOfTry==0)
-                    {
-                        restart();
-                    }
-                }
                 TvScore.setText(Score);
                 Tvattempt.setText(attempt);
-
+                etguessword.setText("");
             }
 
         });

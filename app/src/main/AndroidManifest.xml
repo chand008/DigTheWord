@@ -9,15 +9,18 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.chand008.DigTheWord.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
         <activity
             android:name="com.chand008.DigTheWord.displayword"
-            android:label="@string/title_activity_displayword" >
+            android:label="@string/title_activity_displayword"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.DISPLAY" />
                 <category android:name="android.intent.category.DEFAULT" />

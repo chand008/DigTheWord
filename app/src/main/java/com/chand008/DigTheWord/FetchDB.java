@@ -50,7 +50,8 @@ public class FetchDB extends SQLiteOpenHelper
             {
                 this.onCreate(myDataBase);
             } catch (SQLiteException e) {
-                System.out.println(e);
+                //System.out.println(e);
+                e.printStackTrace();
             }
             finally
             {
@@ -58,7 +59,8 @@ public class FetchDB extends SQLiteOpenHelper
                 {
                     this.onCreateWord(myDataBase);
                 }catch(SQLiteException e1){
-                    System.out.println(e1);
+                    //System.out.println(e1);
+                    e1.printStackTrace();
                 }
             }
         }
@@ -77,7 +79,8 @@ public class FetchDB extends SQLiteOpenHelper
 
                }
             catch(SQLException e) {
-                System.out.println(e);
+               // System.out.println(e);
+                e.printStackTrace();
             }
         }
 
@@ -173,7 +176,8 @@ public class FetchDB extends SQLiteOpenHelper
 
         }
         catch(SQLException e) {
-            System.out.println(e);
+            //System.out.println(e);
+            e.printStackTrace();
         }
 //        finally {
 //            try {
@@ -245,13 +249,15 @@ public class FetchDB extends SQLiteOpenHelper
 
                     }
                     catch(SQLException e) {
-                        System.out.println(e);
+                       // System.out.println(e);
+                        e.printStackTrace();
                     }
                 }
             }
 
             //*CLOSE cursor
             res.close();
+
             return true;
 
 
@@ -320,7 +326,8 @@ public class FetchDB extends SQLiteOpenHelper
 
                 }
                 catch(SQLException e) {
-                    System.out.println(e);
+                    //System.out.println(e);
+                    e.printStackTrace();
                 }
             }
         }
@@ -346,7 +353,7 @@ public class FetchDB extends SQLiteOpenHelper
                 int max_level_no = Integer.parseInt(res.getString(0));
                 res.close();
                 //*get max level to avoid infinite loop -07/18 - 01:38 PM
-
+                //* increment the level no if there are not enough word in that level
                 do{
                     next_level_no++;
                     res = db.rawQuery("select word_id from worddb where level_no=" + next_level_no + " and usage_flag='N'", null);
@@ -367,6 +374,73 @@ public class FetchDB extends SQLiteOpenHelper
         }
     }
 
+    /**trial for random word generation**/
+    //*GET NEXT WORD ID
+//    public int getWordId(int next_level_no){
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        int random = 0;
+//        String v_word_full = "";
+//        try {
+//            Cursor res = db.rawQuery("select word_id from worddb where level_no=" + next_level_no + " and usage_flag='N'", null);
+//            if (res.getCount()>0) {
+//                res.moveToFirst();
+//            }
+//            else{
+//                res.close();
+//                //*get max level to avoid infinite loop -07/18 - 01:38 PM
+//                res = db.rawQuery("select max(level_no) from worddb",null);
+//                res.moveToFirst();
+//                int max_level_no = Integer.parseInt(res.getString(0));
+//                res.close();
+//                //*get max level to avoid infinite loop -07/18 - 01:38 PM
+//                //* increment the level no if there are not enough word in that level
+//                do{
+//                    next_level_no++;
+//                    res = db.rawQuery("select word_id from worddb where level_no=" + next_level_no + " and usage_flag='N'", null);
+//                }while(res.getCount()==0 && next_level_no < max_level_no);
+//                res.moveToFirst();
+//            }
+//            try {
+//                int[] wordidlist = new int[0];
+//                v_word_full=res.getString(columnIndex("wordid"));
+//                for(int i=2;i<=res.getCount();i++)
+//                {
+//                    v_word_full = v_word_full+res.getString(i);
+//
+//                }
+//                String[] v_word = v_word_full.split("");
+//                for(int j=0;j <v_word.length;j++)
+//                {
+//                    wordidlist[j] =Integer.parseInt(v_word[j]);
+//                    System.out.println("huio"+wordidlist[j]);
+//                }
+//
+//
+//                random = (int )(Math.random() * (wordidlist.length) + 0);
+//                System.out.println("hhhhhhhhh"+res.getCount());
+//                System.out.println("huio"+random);
+//                return wordidlist[random];
+//            } catch (Exception e) {
+//                System.out.println("Error with getting word id for level#" + next_level_no);
+//                System.out.println("hhhhhhhhh"+res.getCount());
+//                System.out.println("huio"+random);
+//                e.printStackTrace();
+//                return -1;
+//            }
+//        }
+//        catch(SQLiteException e1){
+//            System.out.println("Error with SQL query"+ e1);
+//            return -1;
+//        }
+//    }
+
+
+
+    /**********end of trial******************/
+
+
+
+
     //*GET NEXT WORD
     public String getWordForGame(int next_word_id )
     {
@@ -386,9 +460,11 @@ public class FetchDB extends SQLiteOpenHelper
                 return v_word;
             } catch (SQLiteException e) {
                 System.out.println("Error with getting word for word id#" + next_word_id);
+                e.printStackTrace();
                 return null;
             } catch (CursorIndexOutOfBoundsException e) {
                 System.out.println("Cursor out of bound when " + next_word_id + " - " + e);
+                e.printStackTrace();
                 return null;
             }
         }
