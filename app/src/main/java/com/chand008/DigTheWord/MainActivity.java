@@ -33,6 +33,8 @@ public class MainActivity extends ActionBarActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+      //  setContentView(R.layout.main_linear);
+
 
         //*create instance of button and edit text from activity_main.xml
         Button button = (Button) findViewById(R.id.loginbutton);

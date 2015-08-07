@@ -1,0 +1,91 @@
+<!--
+/************************************************************************************
+ *   Copyright (C) 2015 Chandhni Kannatintavida                                     *
+ *   This project is licensed under the "MIT License". Please see the file          *
+ *   "License.md"(https://github.com/chand008/Dig-The-Word/blob/master/License.md)  *
+ *   in this distribution for license terms.                                        *
+ *                                                                                  *
+ ************************************************************************************/
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="#ff0a0181">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="335dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/signintitle"
+            android:id="@+id/textView"
+            android:textColor="#ffffffff"
+            android:background="#ffff702a"
+            android:layout_marginBottom="45dp"
+            android:layout_alignStart="@+id/textView2"
+            android:layout_below="@+id/tvappname"
+            android:layout_alignLeft="@+id/textView2" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Username"
+            android:width="320dp"
+            android:inputType="text"
+            android:textColor="#ffffffff"
+            android:background="#ff61e9eb"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/usernametitle"
+            android:id="@+id/textView2"
+            android:textColor="#ffffffff"
+            android:background="#ffff7109"
+            android:layout_below="@+id/textView"
+            android:layout_alignLeft="@+id/Username"
+            android:layout_alignStart="@+id/Username" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loginbutton"
+            android:id="@+id/loginbutton"
+            android:onClick="onclick"
+            android:background="#ff318a0d"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/tvwelcome"
+            android:layout_alignStart="@+id/tvwelcome"
+            android:layout_marginBottom="50dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Welcome!!!"
+            android:id="@+id/tvwelcome"
+            android:textColor="#fef6863e"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Dig The Word"
+            android:id="@+id/tvappname"
+            android:textColor="#ffff142e"
+            android:layout_below="@+id/tvwelcome"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</LinearLayout>

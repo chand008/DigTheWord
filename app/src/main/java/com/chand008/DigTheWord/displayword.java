@@ -24,14 +24,16 @@ import com.chand008.DigTheWord.R;
 public class displayword extends Activity {
 
     String word_to_guess,wtgBlank,level;
-    int score=0,noOfTry=5,levelno=1;
-    int count=0;
+    int score=0,noOfTry=5,levelno=1,count=0;
+    Boolean wset=false;
+
     String user_name = null,Score="Score",attempt="*****";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_displayword);
+       // setContentView(R.layout.activity_displayword_linear);
 
         /*
         * START get extras from previous activity - 07122015 01:25 PM PST
@@ -115,6 +117,8 @@ public class displayword extends Activity {
             @Override
             public void onClick(View v)
             {
+                //wset will prevent user from reentering correct answer for same word
+                wset = false;
                 Tvmsg.setText("");
                 //* START get word from database
                // word_to_guess = mydb.getWordForGame(mydb.getWordIdForGame(1));
@@ -157,9 +161,14 @@ public class displayword extends Activity {
                 {
                     tvresult[0].setText("The word cannot be blank! Please try again!!");
                 }
+                else if (wset)
+                {
+                    tvresult[0].setText("This word has been digged!!Please click Next!");
+                }
                 else
                 {
                     if (etgwrd[0].equalsIgnoreCase(word_to_guess)) {
+                        wset=true;
                         tvresult[0].setText("Congrats!!! correct dig!!!");
                         score = score + 100;
                         Score = "Score " + Integer.toString(score);
@@ -250,9 +259,13 @@ public class displayword extends Activity {
         String[] wordElements = word.split("");
         String wtgBlank = wordElements[0];
         int j = randomNumber(word.length());
+        int p = randomNumber(word.length());
         for(int i=1;i<=word.length();i++)
         {
+
             if(i==j)
+                wordElements[i] = "_";
+            if((i==p) && levelno>1 && word.length()>3 )
                 wordElements[i] = "_";
 
             wtgBlank = wtgBlank+ wordElements[i] ;
