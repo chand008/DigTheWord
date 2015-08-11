@@ -139,7 +139,7 @@ public class Displayword extends Activity {
             //*ACTION WHEN TRY BUTTON IS CLICKED
             @Override
             public void onClick(View v) {
-                //   TODO Auto-generated method stub
+
 
                 tvresult[0] = (TextView) findViewById(R.id.Tvmsg);
                 etgwrd[0] = etguessword.getText().toString();
