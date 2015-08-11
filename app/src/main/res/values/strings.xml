@@ -9,4 +9,6 @@
     <string name="title_activity_displayword">displayword</string>
     <string name="hinttext">Hint</string>
     <string name="backbuttontext">Back</string>
+    <string name="title_activity_message">Message</string>
+    <string name="title_activity_level_display">LevelDisplay</string>
 </resources>

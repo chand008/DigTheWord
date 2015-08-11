@@ -33,8 +33,6 @@ public class MainActivity extends ActionBarActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-      //  setContentView(R.layout.main_linear);
-
 
         //*create instance of button and edit text from activity_main.xml
         Button button = (Button) findViewById(R.id.loginbutton);
@@ -44,10 +42,8 @@ public class MainActivity extends ActionBarActivity
         * need to use openOrCreateDatabase method ,
         * otherwise you need to have an exception catching to take care of the database already exist situation.
         */
-
         SQLiteDatabase database = openOrCreateDatabase("MyDBName.db", Context.MODE_PRIVATE, null);
         mydb.createDatabase(database);
-
         /*
         * END create/open database
         */
@@ -62,8 +58,8 @@ public class MainActivity extends ActionBarActivity
             public void onClick(View v)
             {
                  /* this part of code, checks if the entered username is already present in the database, if it is
-                 *  present then just pass the value of username and go to displayword activity. if not add the username
-                 *  score(as 0) and level as 1 and then pass the value of username and go to displayword activity
+                 *  present then just pass the value of username and go to Displayword activity. if not add the username
+                 *  score(as 0) and level as 1 and then pass the value of username and go to Displayword activity
                  */
                 String etuname1, etuname2;
                 EditText etusername = (EditText) findViewById(R.id.Username);
@@ -76,7 +72,7 @@ public class MainActivity extends ActionBarActivity
                     if (x)
                     {
                         System.out.println("Good");
-                        etusername.setText(mydb.getDataString(etuname1) + "- just for horror");
+                        etusername.setText(mydb.getDataString(etuname1));
                     } else {
                         etusername.setText("False");
                     }
@@ -87,7 +83,6 @@ public class MainActivity extends ActionBarActivity
                 }
 
                 Intent intent = new Intent("android.intent.action.DISPLAY");
-
                 //* START pass extras for teh next activity - 07/12/2015
                 intent.putExtra("logged_in_user", mydb.getDataString(etuname1));
                 //* END pass extras for teh next activity - 07/12/2015
@@ -95,7 +90,6 @@ public class MainActivity extends ActionBarActivity
                 //* START close DB - prevent leak 07/18 - 10:30 am - no database leak since
                 mydb.close();
                 //*END close DB - prevent leak 07/18 - 10:30 am
-
                 startActivity(intent);
 
 

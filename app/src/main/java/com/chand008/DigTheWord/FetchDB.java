@@ -26,9 +26,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import java.lang.*;
 
-/**
- * Created by Chandhni on 7/10/2015.
- */
 public class FetchDB extends SQLiteOpenHelper
 {
 
@@ -36,7 +33,6 @@ public class FetchDB extends SQLiteOpenHelper
         public static final String USER_TABLE_NAME = "user";
         public static final String USER_COLUMN_NAME = "uname";
         public static final String USER_COLUMN_SCORE = "score";
-        //private HashMap hp;
 
         public FetchDB(Context context)
         {
@@ -50,7 +46,6 @@ public class FetchDB extends SQLiteOpenHelper
             {
                 this.onCreate(myDataBase);
             } catch (SQLiteException e) {
-                //System.out.println(e);
                 e.printStackTrace();
             }
             finally
@@ -59,7 +54,6 @@ public class FetchDB extends SQLiteOpenHelper
                 {
                     this.onCreateWord(myDataBase);
                 }catch(SQLiteException e1){
-                    //System.out.println(e1);
                     e1.printStackTrace();
                 }
             }
@@ -68,7 +62,6 @@ public class FetchDB extends SQLiteOpenHelper
         @Override
         public void onCreate(SQLiteDatabase db)
         {
-            // TODO Auto-generated method stub
             //*do a try catch here!! catch in case SQLiteDBExceptions-done
             try
             {
@@ -79,15 +72,13 @@ public class FetchDB extends SQLiteOpenHelper
 
                }
             catch(SQLException e) {
-               // System.out.println(e);
-                e.printStackTrace();
+               e.printStackTrace();
             }
         }
 
     //*word table - 07/17/2015
     public void onCreateWord(SQLiteDatabase db)
     {
-        // TODO Auto-generated method stub
         //*do a try catch here!! catch in case SQLiteDBExceptions
         try
         {
@@ -176,27 +167,11 @@ public class FetchDB extends SQLiteOpenHelper
 
         }
         catch(SQLException e) {
-            //System.out.println(e);
             e.printStackTrace();
         }
-//        finally {
-//            try {
-////                db.execSQL("insert into worddb values('FOOD','KEEPS US ALIVE',1,1,'N',1)");
-////                db.execSQL("insert into worddb values('BUG','HATE THIS IN A CODE',1,1,'N',2)");
-////                db.execSQL("insert into worddb values('LOVE','CANNOT LIVE WITHOUT',1,1,'N',3)");
-////                db.execSQL("insert into worddb values('MICROBE','NEED A MICROSCOPE TO SEE THEM',1,2,'N',4)");
-////                db.execSQL("insert into worddb values('COG','GEAR-UP',1,2,'N',5)");
-////                db.execSQL("insert into worddb values('GLEAN','GATHER',2,3,'N',6)");
-////                db.execSQL("insert into worddb values('OSSIFY','OUTDATED',2,3,'N',7)");
-//            }
-//            catch(SQLiteException e1){
-//                System.out.println("Insert word exception" + e1);
-//            }
-//        }
     }
 
     //*word table - 07/17/2015
-
     @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
@@ -219,7 +194,6 @@ public class FetchDB extends SQLiteOpenHelper
                 contentValues.put("uname", uname);
 
             }
-
             contentValues.put("score", score);
             db.insert("user", null, contentValues);
             //*CLOSE db -07/18 10:10 am
@@ -242,11 +216,7 @@ public class FetchDB extends SQLiteOpenHelper
                     try
                     {
                         db.execSQL(
-                               // " UPDATE user SET score="+score+" where uname = "+"'"+uname+"'");
                                     "INSERT INTO user VALUES("+"'"+uname+"',"+score+","+level);
-                        // +"and level="+level+"");
-
-
                     }
                     catch(SQLException e) {
                        // System.out.println(e);
@@ -257,10 +227,7 @@ public class FetchDB extends SQLiteOpenHelper
 
             //*CLOSE cursor
             res.close();
-
             return true;
-
-
         }
 
         public Cursor getData(String uname)
@@ -281,14 +248,12 @@ public class FetchDB extends SQLiteOpenHelper
     {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res =  db.rawQuery("select * from user where uname=" + "'" + uname + "'", null);
-        //Cursor res =  db.rawQuery("select * from user where uname= ?" ,uname);
-        //db.close();
+
         res.moveToFirst();
         String username ="null";
         if (res.getCount()!=0)
         {
             username = res.getString(0);
-
         }
         else
         {
@@ -298,9 +263,7 @@ public class FetchDB extends SQLiteOpenHelper
         //*CLOSE cursor -07/18 10:19 am
         res.close();
         //*CLOSE cursor -07/18 10:19 am
-
         return username;
-
     }
     /*
     * This method updates the score of the user when back button is hit or when user completes
@@ -321,9 +284,6 @@ public class FetchDB extends SQLiteOpenHelper
                 {
                     db.execSQL(
                             " UPDATE user SET score="+score+" where uname = "+"'"+uname+"'");
-                                    // +"and level="+level+"");
-
-
                 }
                 catch(SQLException e) {
                     //System.out.println(e);
@@ -341,7 +301,7 @@ public class FetchDB extends SQLiteOpenHelper
     public int getWordIdForGame(int next_level_no){
         SQLiteDatabase db = this.getReadableDatabase();
         try {
-            //Cursor res = db.rawQuery("select word_id from worddb where level_no=" + next_level_no + " and usage_flag='N'", null);
+
             Cursor res = db.rawQuery("select word_id from worddb where level_no=" + next_level_no + " and usage_flag='N' ORDER BY RANDOM() LIMIT 1", null);
             if (res.getCount()>0) {
                 res.moveToFirst();
@@ -387,10 +347,8 @@ public class FetchDB extends SQLiteOpenHelper
             try
             {
                 Cursor res = db.rawQuery("select word from worddb where word_id=" + next_word_id, null);
-//            System.out.println("res.getColumnIndex(word)="+res.getColumnIndex("word") + " and Count =" + res.getCount());
                 res.moveToFirst();
                 String v_word = res.getString(res.getColumnIndex("word"));
-//            System.out.println("The word picked from datbase is : "+ v_word);
                 res.close();
                 return v_word;
             } catch (SQLiteException e) {

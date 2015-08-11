@@ -14,9 +14,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.chand008.DigTheWord.displayword"
+    tools:context="com.chand008.DigTheWord.Displayword"
     android:id="@+id/displaywordlayout"
-    android:background="#7c4545f9">
+    android:background="#ff313131">
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -27,7 +27,7 @@
         android:onClick="onclick"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:background="#ff18d9ff"/>
+        />
         <!--android:layout_below="@+id/Etcguessword" -->
 
     <TextView
@@ -36,10 +36,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="W_RLD"
         android:id="@+id/Tvword"
-        android:background="#ffff8238"
+        android:background="#ed82adff"
         android:width ="320dp"
         android:layout_below="@+id/Tvwordlabel"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -61,7 +62,8 @@
         android:layout_below="@+id/Tvguesswordlabel"
         android:layout_alignLeft="@+id/Tvword"
         android:layout_alignStart="@+id/Tvword"
-        android:background="#ff21ffdc" />
+        android:background="#fc82adff"
+        android:textColor="#ff131313" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -80,7 +82,7 @@
         android:layout_height="wrap_content"
         android:text="TRY"
         android:id="@+id/Benter"
-        android:background="#ffbc2612"
+
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/TvLevel"
         android:layout_alignStart="@+id/TvLevel" />
@@ -123,7 +125,8 @@
         android:text="Large Text"
         android:id="@+id/TvLevel"
         android:layout_alignBottom="@+id/Bhint"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -133,7 +136,8 @@
         android:id="@+id/TvScore"
         android:layout_alignTop="@+id/Bnextbutton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -143,7 +147,8 @@
         android:id="@+id/Tvmsg"
         android:layout_below="@+id/Benter"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="43dp" />
+        android:layout_marginTop="43dp"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -167,7 +172,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#ff2e781f"
-        android:textColor="#fffaf2ff" />
+
+        android:textColor="#ff101012" />
 
 </RelativeLayout>
