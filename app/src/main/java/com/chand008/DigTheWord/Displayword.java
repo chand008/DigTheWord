@@ -21,17 +21,19 @@ import android.widget.TextView;
 import com.chand008.DigTheWord.R;
 
 
-public class Displayword extends Activity {
+public class displayword extends Activity {
 
     String word_to_guess,wtgBlank,level;
     int score=0,noOfTry=5,levelno=1,count=0;
     Boolean wset=false;
+
     String user_name = null,Score="Score",attempt="*****";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_displayword);
+       // setContentView(R.layout.activity_displayword_linear);
 
         /*
         * START get extras from previous activity - 07122015 01:25 PM PST
@@ -52,6 +54,7 @@ public class Displayword extends Activity {
          //*END get extras from previous activity - 07122015 01:25 PM PST
 
         level="Level"+" " +Integer.toString(levelno);
+        // Score= Score+" " +Integer.toString(score);
         final TextView TvLevel = (TextView) findViewById(R.id.TvLevel);
         TvLevel.setText(level);
 
@@ -78,7 +81,9 @@ public class Displayword extends Activity {
         final TextView[] tvword = new TextView[1];
         tvword[0] = (TextView) findViewById(R.id.Tvword);
         word_to_guess = mydb.getWordForGame(mydb.getWordIdForGame(levelno));
-       //* END get word from database
+       // word_to_guess = mydb.getWordForGame(mydb.getWordId(levelno));
+       // word_to_guess = mydb.getWordForGame(mydb.getWordIdForGame(1));
+        //* END get word from database
 
         //* START call method to blank a letter and set the word with letter blank
         wtgBlank= blankLetter(word_to_guess);
@@ -115,8 +120,14 @@ public class Displayword extends Activity {
                 //wset will prevent user from reentering correct answer for same word
                 wset = false;
                 Tvmsg.setText("");
+                //* START get word from database
+               // word_to_guess = mydb.getWordForGame(mydb.getWordIdForGame(1));
                 word_to_guess = mydb.getWordForGame(mydb.getWordIdForGame(levelno));
+                //word_to_guess = mydb.getWordForGame(mydb.getWordId(levelno));
+
+                //* END get word from database
                 //*call method to blank a letter in word and display it
+               // tvword[0].setText(word_to_guess);
                 wtgBlank=blankLetter(word_to_guess);
                 tvword[0].setText(wtgBlank);
                 etguessword.setText(null);
@@ -124,6 +135,7 @@ public class Displayword extends Activity {
                 tvresult.setText("Enter your Guess:");
                 TextView tvhinttext = (TextView) findViewById(R.id.Tvhinttext);
                 tvhinttext.setText(null);
+                //TextView TvScore = (TextView) findViewById(R.id.TvScore);
                 TvScore.setText(Score);
 
                 level= "Level "+Integer.toString(levelno);
@@ -139,7 +151,7 @@ public class Displayword extends Activity {
             //*ACTION WHEN TRY BUTTON IS CLICKED
             @Override
             public void onClick(View v) {
-
+                //   TODO Auto-generated method stub
 
                 tvresult[0] = (TextView) findViewById(R.id.Tvmsg);
                 etgwrd[0] = etguessword.getText().toString();
@@ -176,19 +188,10 @@ public class Displayword extends Activity {
                                 level = "Level " + Integer.toString(levelno);
                                 TvLevel.setText(level);
                                 Tvmsg.setText("Congrats u have DIGGED into next Level!!!");
-                                //* go to new activity to show current status
-//                                Intent intent = new Intent("android.intent.action.MESSAGE");
-//                                intent.putExtra("logged_in_user", user_name);
-//                                intent.putExtra("score", score);
-//                                intent.putExtra("level_no", levelno);
-//                                startActivity(intent);
-
-
                             } else {
                                 restart();
                             }
                         }
-
 
                     } else {
                         tvresult[0].setText("Incorrect word");
@@ -220,6 +223,8 @@ public class Displayword extends Activity {
             public void onClick(View v)
             {
                 //*get the word on screen and find the hint from the db
+//                TextView word_on_screen = (TextView) findViewById(R.id.Tvword);
+//                String hint_statement = mydb.getWordHint(word_on_screen.getText().toString());
                 String hint_statement = mydb.getWordHint(word_to_guess);
                 System.out.println("this is the hint:- "+hint_statement);
                 tvhinttext.setText(hint_statement);
@@ -250,6 +255,7 @@ public class Displayword extends Activity {
     * and one char is changed as _ and its stored in a variable
     * which is returned.
     */
+       // String wtgBlank = null;
         String[] wordElements = word.split("");
         String wtgBlank = wordElements[0];
         int j = randomNumber(word.length());
@@ -258,9 +264,9 @@ public class Displayword extends Activity {
         {
 
             if(i==j)
-                wordElements[i] = " _ ";
+                wordElements[i] = "_";
             if((i==p) && levelno>1 && word.length()>3 )
-                wordElements[i] = " _ ";
+                wordElements[i] = "_";
 
             wtgBlank = wtgBlank+ wordElements[i] ;
         }
