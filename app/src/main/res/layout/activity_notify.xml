@@ -59,4 +59,12 @@
         android:layout_alignParentStart="true"
         android:textColor="#ffff6e3c" />
 
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/ic_timeout1"
+        android:layout_above="@+id/textView2"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
