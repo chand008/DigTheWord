@@ -15,49 +15,50 @@ The application is developed in JAVA. Ide used is android studio and SQLite is t
 http://developer.android.com/tools/studio/index.html
             
 **Author:**
-            Chandhni Kannatintavida
+            <br>Chandhni Kannatintavida<br>
         
 **Project Name:**
-            DigTheWord
+            <br>DigTheWord<br>
             
 **Contact Information:**
-            chandhni@pdx.edu
+            <br>chandhni@pdx.edu<br>
 
 **License Information:**
-            Please check the below link to get the file license in this distribution. Link :
-            https://github.com/chand008/DigTheWord/blob/master/License.md
+           <br> Please check the below link to get the file license in this distribution.<br> Link :
+            https://github.com/chand008/DigTheWord/blob/master/License.md<br>
             
 **Source Code:**
-            The source code can be found at the following repository Link for repository:
-            https://github.com/chand008/DigTheWord
+            <br>The source code can be found at the following repository Link for repository:<br>
+            https://github.com/chand008/DigTheWord<br>
             
 **Developer Documents:**
-            Please click on the links below to find developer documents Github Manual: 
+            <br>Please click on the links below to find developer documents Github Manual: <br>
             
             
 **User Documents:**
-            Please click on the links below to find user documents: Guide for .apk installation:
+           <br> Please click on the links below to find user documents: Guide for .apk installation:<br>
 
 
 **Build Instruction:**
-            Click on the link below to find Build Instructions:
+            <br>Click on the link below to find Build Instructions:<br>
 
 
 **User Manual**
 
 
 **Pre-requisites**
-            Android device.
+           <br> Android device.<br>
             
 **Future Enhancements:**
-           1.  Create categories for words like Science and technology, History etc*.
-           2.  Create a screen after the login(main activity) for users to be able to select the level they wish to play.
-           3.  Incorporate the time limit for guessing the word.
-           4.  Updation of score based on time and use of hints.
-           5.  Improve the look of the app.
+          <br> 1.  Create categories for words like Science and technology, History etc.<br>
+          <br> 2.  Create a screen after the login(main activity) for users to be able to select the level they wish to play.<br>
+         <br>  3.  Incorporate the time limit for guessing the word.<br>
+         <br>  4.  Updation of score based on time and use of hints.<br>
+          <br> 5.  Improve the look of the app.<br>
+          <br> 6. Upgrade to grid type challenge screen, from free text screen.<br>
             
 **Issue Tracker/Bug Tracker:**
-            https://github.com/chand008/DigTheWord/issues
+            <br>https://github.com/chand008/DigTheWord/issues<br>
             
             
 **Final Presentation:**
