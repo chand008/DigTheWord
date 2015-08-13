@@ -11,8 +11,8 @@ This is a single user android word game. The user will be shown a word with some
 The application is developed in JAVA. Ide used is android studio and SQLite is the database used.
 
 **References:**
-           ⋅⋅* http://www.tutorialspoint.com/android/index.htm
-           ⋅⋅* http://developer.android.com/tools/studio/index.html
+http://www.tutorialspoint.com/android/index.htm
+http://developer.android.com/tools/studio/index.html
             
 **Author:**
             Chandhni Kannatintavida
@@ -25,7 +25,7 @@ The application is developed in JAVA. Ide used is android studio and SQLite is t
 
 **License Information:**
             Please check the below link to get the file license in this distribution. Link :
-            --https://github.com/chand008/DigTheWord/blob/master/License.md
+            https://github.com/chand008/DigTheWord/blob/master/License.md
             
 **Source Code:**
             The source code can be found at the following repository Link for repository:
@@ -50,7 +50,7 @@ The application is developed in JAVA. Ide used is android studio and SQLite is t
             Android device.
             
 **Future Enhancements:**
-           1.  Create categories for words like Science and technology, History etc
+           1.  Create categories for words like Science and technology, History etc*.
            2.  Create a screen after the login(main activity) for users to be able to select the level they wish to play.
            3.  Incorporate the time limit for guessing the word.
            4.  Updation of score based on time and use of hints.
