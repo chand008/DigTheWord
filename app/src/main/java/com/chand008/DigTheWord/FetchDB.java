@@ -175,7 +175,7 @@ public class FetchDB extends SQLiteOpenHelper
     @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
-            // TODO Auto-generated method stub
+
             db.execSQL("DROP TABLE IF EXISTS user");
             onCreate(db);
         }
@@ -211,38 +211,27 @@ public class FetchDB extends SQLiteOpenHelper
             if (res.getCount()!=0)
             {
                 dbScore = Integer.valueOf(res.getString(1));
+                System.out.println("aaaaaaaaaaaaaaaaaaaaaaaa"+dbScore);
+                System.out.println("bbbbbbbbbbbbbbbb"+score);
                 if(score > dbScore)
                 {
                     try
                     {
                         db.execSQL(
-                                    "INSERT INTO user VALUES("+"'"+uname+"',"+score+","+level);
+                                    "INSERT INTO user VALUES("+"'"+uname+"',"+score+","+level+")");
                     }
                     catch(SQLException e) {
                        // System.out.println(e);
                         e.printStackTrace();
                     }
                 }
+
             }
 
             //*CLOSE cursor
             res.close();
             return true;
         }
-
-        public Cursor getData(String uname)
-        {
-            SQLiteDatabase db = this.getReadableDatabase();
-            Cursor res =  db.rawQuery( "select * from user where uname="+"'"+uname+"'",null);
-
-            //*CLOSE cursor -07/18 10:14 am
-            Cursor res_copy = res;
-            res.close();
-            //*CLOSE cursor -07/18 10:14 am
-
-            return res_copy;
-        }
-
 
     public String getDataString(String uname)
     {
@@ -264,6 +253,31 @@ public class FetchDB extends SQLiteOpenHelper
         res.close();
         //*CLOSE cursor -07/18 10:19 am
         return username;
+    }
+    /*
+    * This method gets user details and pass it to display in screen 2
+    *
+     */
+    public int getLevelno(String uname)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery("select level from user where uname=" + "'" + uname + "'", null);
+
+        res.moveToFirst();
+        int levelno =1;
+        if (res.getCount()!=0)
+        {
+            levelno = Integer.parseInt(res.getString(0));
+        }
+        else
+        {
+            levelno=0;
+        }
+
+        //*CLOSE cursor -07/18 10:19 am
+        res.close();
+        //*CLOSE cursor -07/18 10:19 am
+        return levelno;
     }
     /*
     * This method updates the score of the user when back button is hit or when user completes

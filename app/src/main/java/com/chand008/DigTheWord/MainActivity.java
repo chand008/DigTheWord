@@ -83,6 +83,7 @@ public class MainActivity extends ActionBarActivity
                 }
 
                 Intent intent = new Intent("android.intent.action.DISPLAY");
+               // Intent intent = new Intent("android.intent.action.LEVELDISPLAY");
                 //* START pass extras for teh next activity - 07/12/2015
                 intent.putExtra("logged_in_user", mydb.getDataString(etuname1));
                 //* END pass extras for teh next activity - 07/12/2015
@@ -91,7 +92,7 @@ public class MainActivity extends ActionBarActivity
                 mydb.close();
                 //*END close DB - prevent leak 07/18 - 10:30 am
                 startActivity(intent);
-
+                finish();
 
             }
         });

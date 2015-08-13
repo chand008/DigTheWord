@@ -95,7 +95,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/Etcguessword"
         android:layout_alignStart="@+id/Etcguessword"
-        android:textColor="#ffff1e06" />
+        android:textColor="#ffff841a"
+        android:textSize="30dp"
+        android:text="anil" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -115,7 +117,7 @@
         android:layout_below="@+id/Bbackbutton"
         android:layout_alignLeft="@+id/Tvwordlabel"
         android:layout_alignStart="@+id/Tvwordlabel"
-        android:textColor="#ff2609ff"
+        android:textColor="#ff53ffde"
         android:textStyle="italic" />
 
     <TextView

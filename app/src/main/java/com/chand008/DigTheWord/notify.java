@@ -1,3 +1,4 @@
+
 /************************************************************************************
  *   Copyright (C) 2015 Chandhni Kannatintavida                                     *
  *   This project is licensed under the "MIT License". Please see the file          *
@@ -5,61 +6,57 @@
  *   in this distribution for license terms.                                        *
  *                                                                                  *
  ************************************************************************************/
+
 package com.chand008.DigTheWord;
 
 import android.content.Intent;
-import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 
-public class Message extends ActionBarActivity {
-    String user_name = "Unknown";
-    //** Duration of wait
-    private final int SPLASH_DISPLAY_LENGTH = 1500;
-    Bundle xtra = getIntent().getExtras();
+public class notify extends ActionBarActivity {
+    String user_name="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message);
+        setContentView(R.layout.activity_notify);
 
-
+        Bundle xtra = getIntent().getExtras();
         if (xtra != null)
         {
             user_name = xtra.getString("logged_in_user");
+//            levelno=  xtra.getInt("level_no");
+
         }
         else
         {
             user_name = "Guest";
+            //   levelno=1;
         }
-        System.out.println("This is the user name passed: " + user_name);
-        TextView tvusername = (TextView) findViewById(R.id.Tvusername);
-        tvusername.setText(user_name);
-
-
-         /* New Handler to start the Menu-Activity
-         * and close this Splash-Screen after some seconds.*/
-        new Handler().postDelayed(new Runnable() {
+        TextView Tvusername = (TextView) findViewById(R.id.Tvusername);
+        Tvusername.setText(user_name);
+        Button b = (Button) findViewById(R.id.ok);
+        b.setOnClickListener(new View.OnClickListener() {
+            //*ACTION WHEN hint BUTTON IS CLICKED
             @Override
-            public void run() {
-                /* Create an Intent that will start the Menu-Activity. */
+            public void onClick(View v) {
                 Intent intent = new Intent("android.intent.action.DISPLAY");
                 intent.putExtra("logged_in_user", user_name);
-                intent.putExtra("score", xtra.getString("score"));
-                intent.putExtra("level_no",  xtra.getString("level_no"));
                 startActivity(intent);
-                Message.this.finish();
+                finish();
             }
-        }, SPLASH_DISPLAY_LENGTH);
+        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_message, menu);
+        getMenuInflater().inflate(R.menu.menu_notify, menu);
         return true;
     }
 

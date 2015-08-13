@@ -20,6 +20,8 @@ import android.widget.TextView;
 
 import com.chand008.DigTheWord.R;
 
+import static android.app.PendingIntent.getActivity;
+
 
 public class Displayword extends Activity {
 
@@ -41,10 +43,13 @@ public class Displayword extends Activity {
         if (xtra != null)
         {
             user_name = xtra.getString("logged_in_user");
+//            levelno=  xtra.getInt("level_no");
+
         }
         else
         {
              user_name = "Guest";
+          //   levelno=1;
         }
         System.out.println("This is the user name passed: " + user_name);
         TextView tvusername = (TextView) findViewById(R.id.Tvusername);
@@ -133,6 +138,7 @@ public class Displayword extends Activity {
         /*
         *  END ACTION WHEN NEXT BUTTON IS CLICKED
         */
+        //* Action when TRY button is clicked
         button_copy = button;
 
         button_copy.setOnClickListener(new View.OnClickListener() {
@@ -170,7 +176,9 @@ public class Displayword extends Activity {
                         count++;
                         if (count == 5) {
                             count = 0;
+                           // levelno++;
                             Boolean x = mydb.insertScore(user_name, score, levelno);
+                          //  int x = mydb.scoreUpdate(user_name, score, levelno);
                             if (x) {
                                 levelno++;
                                 level = "Level " + Integer.toString(levelno);
@@ -186,6 +194,8 @@ public class Displayword extends Activity {
 
                             } else {
                                 restart();
+                                Intent i = new Intent("android.intent.action.MAIN");
+                                startActivity(i);
                             }
                         }
 
@@ -196,6 +206,17 @@ public class Displayword extends Activity {
                         editAttempt(noOfTry);
                         if (noOfTry == 0) {
                             restart();
+                          //  tvresult[0].setText("Game Over! Dig Again!!");
+                            Intent i = new Intent("android.intent.action.NOTIFY");
+                            i.putExtra("logged_in_user", user_name);
+                            startActivity(i);
+
+//                            try {
+//                                wait(1500);
+//                            } catch (InterruptedException e) {
+//                                e.printStackTrace();
+//                            }
+                            finish();
                         }
                     }
                 }
@@ -237,6 +258,7 @@ public class Displayword extends Activity {
     {
         //* Method invoked when BACK button is clicked
         restart();
+        this.finish();
     }
     /*
     * END BACK buttton : action when hint button is clicked
@@ -324,8 +346,9 @@ public class Displayword extends Activity {
 
         runthis.start();
 
-        Intent i =new Intent(this,MainActivity.class);
-        startActivity(i);
+//        Intent i =new Intent(this,MainActivity.class);
+//        startActivity(i);
+
     }
 
     @Override

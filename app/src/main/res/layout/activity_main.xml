@@ -14,20 +14,20 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="#ff494949">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/signintitle"
+        android:text="Please Sign in"
         android:id="@+id/textView"
         android:textColor="#ffffffff"
-        android:background="#ffff702a"
         android:layout_marginBottom="45dp"
-        android:layout_above="@+id/textView2"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignStart="@+id/textView2" />
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/Username"
+        android:layout_alignStart="@+id/Username" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -35,22 +35,12 @@
         android:id="@+id/Username"
         android:width="320dp"
         android:inputType="text"
-        android:textColor="#ffffffff"
+        android:textColor="#ff131313"
         android:background="#ff61e9eb"
         android:layout_above="@+id/loginbutton"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="65dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/usernametitle"
-        android:id="@+id/textView2"
-        android:textColor="#ffffffff"
-        android:background="#ffff7109"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/Username"
-        android:layout_alignStart="@+id/Username" />
+        android:layout_marginBottom="65dp"
+        android:hint="Username" />
 
     <Button
         android:layout_width="wrap_content"
@@ -83,6 +73,7 @@
         android:layout_below="@+id/tvwelcome"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="57dp"
-        android:textColor="#ffff142e" />
+        android:textColor="#ffff142e"
+        android:textSize="40dp" />
 
 </RelativeLayout>

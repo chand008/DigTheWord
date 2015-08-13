@@ -1,4 +1,3 @@
-
 <!--
 /************************************************************************************
  *   Copyright (C) 2015 Chandhni Kannatintavida                                     *
@@ -15,21 +14,39 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.chand008.DigTheWord.Message"
-    android:id="@+id/Messagelayout"
-    android:background="#06f3f3f3">
+    tools:context="com.chand008.DigTheWord.notify"
+    android:background="#ff4a4a4a">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:id="@+id/ok"
+        android:layout_above="@+id/Tvusername"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="216dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="U have Digged into next level!!!"
-        android:id="@+id/message"
-        android:textColor="#ffff6613"
+        android:text="Game Over!!"
+        android:id="@+id/textView2"
         android:textSize="40dp"
-        android:layout_below="@+id/Tvusername"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffff783a" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" Please Dig Again!!!"
+        android:id="@+id/textView3"
+        android:textSize="35dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffff9e57" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,18 +54,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/Tvusername"
-        android:textSize="40dp"
-        android:layout_below="@+id/msg"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#ffff6e3c" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="CONGRATS "
-        android:id="@+id/msg"
-        android:textColor="#ffff6217"
-        android:textSize="@android:dimen/app_icon_size"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
 </RelativeLayout>
