@@ -11,7 +11,7 @@ This is a single user android word game. The user will be shown a word with some
 The application is developed in JAVA. Ide used is android studio and SQLite is the database used.
 
 **References:**
-http://www.tutorialspoint.com/android/index.htm
+<br>http://www.tutorialspoint.com/android/index.htm<br>
 http://developer.android.com/tools/studio/index.html
             
 **Author:**
