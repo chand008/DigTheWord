@@ -8,7 +8,8 @@ This is an open source android word game where the user has to guess the correct
 **Project Description:**
 
 This is a single user android word game. The user will be shown a word with some charecters blanked and the user has to guess the correct word. The user gets 5 chances to guess the correct word failing which they have to start from first level of the game again. User needs to complete 5 words to reach the next level (level 2). For every incorrect letter one letter of the the word WRONG is displayed on the screen. The user can choose to get hints.. For each correct guess the score is updated and the highest score so far in the game irrespective of the level is saved.User also has the option to quit the game.
-The application is developed in JAVA. Ide used is android studio and SQLite is the database used.
+The application is developed in JAVA. Ide used is android studio and SQLite is the database used. There are 12 levels for this game.
+Application configured for devices from API 8 but tested only on android 5.0.1 API 21.
 
 **References:**
 <br>http://www.tutorialspoint.com/android/index.htm<br>
