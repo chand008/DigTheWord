@@ -38,15 +38,12 @@ public class MainActivity extends ActionBarActivity
         Button button = (Button) findViewById(R.id.loginbutton);
 
         /*
-        * START create/open database
-        * need to use openOrCreateDatabase method ,
+        * START create/open database. Need to use openOrCreateDatabase method ,
         * otherwise you need to have an exception catching to take care of the database already exist situation.
         */
         SQLiteDatabase database = openOrCreateDatabase("MyDBName.db", Context.MODE_PRIVATE, null);
         mydb.createDatabase(database);
-        /*
-        * END create/open database
-        */
+        //* END create/open database
 
         /*
         * START action when login button is clicked
@@ -63,7 +60,7 @@ public class MainActivity extends ActionBarActivity
                  */
                 String etuname1, etuname2;
                 EditText etusername = (EditText) findViewById(R.id.Username);
-                //*   get the value of username the user entered
+                //*   get the value of username the user entered and trim it to get rid of spaces
                 etuname1 = etusername.getText().toString().trim();
 
                 if (mydb.getDataString(etuname1).equals("unknown"))
@@ -83,7 +80,6 @@ public class MainActivity extends ActionBarActivity
                 }
 
                 Intent intent = new Intent("android.intent.action.DISPLAY");
-               // Intent intent = new Intent("android.intent.action.LEVELDISPLAY");
                 //* START pass extras for teh next activity - 07/12/2015
                 intent.putExtra("logged_in_user", mydb.getDataString(etuname1));
                 //* END pass extras for teh next activity - 07/12/2015
@@ -97,9 +93,8 @@ public class MainActivity extends ActionBarActivity
             }
         });
 
-        /*
-        * END action when login button is clicked
-        */
+        //* END action when login button is clicked
+
     }
 
     @Override

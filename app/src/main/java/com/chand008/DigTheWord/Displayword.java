@@ -25,16 +25,14 @@ import static android.app.PendingIntent.getActivity;
 
 public class Displayword extends Activity {
 
-    String word_to_guess,wtgBlank,level;
+    String word_to_guess,wtgBlank,level,user_name = "",Score="Score",attempt="*****";
     int score=0,noOfTry=5,levelno=1,count=0;
     Boolean wset=false;
-    String user_name = null,Score="Score",attempt="*****";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_displayword);
-
         /*
         * START get extras from previous activity - 07122015 01:25 PM PST
         * This will pass the username from log in to this activity
@@ -43,13 +41,10 @@ public class Displayword extends Activity {
         if (xtra != null)
         {
             user_name = xtra.getString("logged_in_user");
-//            levelno=  xtra.getInt("level_no");
-
         }
         else
         {
              user_name = "Guest";
-          //   levelno=1;
         }
         System.out.println("This is the user name passed: " + user_name);
         TextView tvusername = (TextView) findViewById(R.id.Tvusername);
@@ -65,12 +60,9 @@ public class Displayword extends Activity {
         final TextView Tvmsg =(TextView) findViewById(R.id.Tvmsg);
         Tvmsg.setText("");
 
-        /*
-         *START display word and enter word
-        */
-        Button button;
+        //* START display word and enter word
+        Button button,button_copy;
         button = (Button) findViewById(R.id.Benter);
-        Button button_copy;
 
         final EditText etguessword;
         etguessword = (EditText) findViewById(R.id.Etcguessword);
@@ -89,28 +81,19 @@ public class Displayword extends Activity {
         wtgBlank= blankLetter(word_to_guess);
         tvword[0].setText(wtgBlank);
         //* END call method to blank a letter and set the word with letter blank
+        //*END display word and enter word
 
-        /*
-         *END display word and enter word
-        */
-
-        /*
-        * START get score from database
-        */
+        //* START get score from database
         score = mydb.scoreUpdate(user_name,score,levelno);
         Score = Score +" "+ Integer.toString(score);
         final TextView TvScore = (TextView) findViewById(R.id.TvScore);
         TvScore.setText(Score);
-         /*
-        * END get score from database
-        */
+        //* END get score from database
 
         Button nextword = new Button(this);
         nextword = (Button) findViewById(R.id.Bnextbutton);
 
-        /*
-        * START ACTION WHEN NEXT BUTTON IS CLICKED
-        */
+        //* START ACTION WHEN NEXT BUTTON IS CLICKED
         nextword.setOnClickListener(new View.OnClickListener()
         {
 
@@ -135,17 +118,14 @@ public class Displayword extends Activity {
                 TvLevel.setText(level);
             }
         });
-        /*
-        *  END ACTION WHEN NEXT BUTTON IS CLICKED
-        */
+        //*  END ACTION WHEN NEXT BUTTON IS CLICKED
+
         //* Action when TRY button is clicked
         button_copy = button;
-
         button_copy.setOnClickListener(new View.OnClickListener() {
             //*ACTION WHEN TRY BUTTON IS CLICKED
             @Override
             public void onClick(View v) {
-                //   TODO Auto-generated method stub
 
                 tvresult[0] = (TextView) findViewById(R.id.Tvmsg);
                 etgwrd[0] = etguessword.getText().toString();
@@ -176,22 +156,12 @@ public class Displayword extends Activity {
                         count++;
                         if (count == 5) {
                             count = 0;
-                           // levelno++;
                             Boolean x = mydb.insertScore(user_name, score, levelno);
-                          //  int x = mydb.scoreUpdate(user_name, score, levelno);
                             if (x) {
                                 levelno++;
                                 level = "Level " + Integer.toString(levelno);
                                 TvLevel.setText(level);
                                 Tvmsg.setText("Congrats u have DIGGED into next Level!!!");
-                                //* go to new activity to show current status
-//                                Intent intent = new Intent("android.intent.action.MESSAGE");
-//                                intent.putExtra("logged_in_user", user_name);
-//                                intent.putExtra("score", score);
-//                                intent.putExtra("level_no", levelno);
-//                                startActivity(intent);
-
-
                             } else {
                                 restart();
                                 Intent i = new Intent("android.intent.action.MAIN");
@@ -206,16 +176,9 @@ public class Displayword extends Activity {
                         editAttempt(noOfTry);
                         if (noOfTry == 0) {
                             restart();
-                          //  tvresult[0].setText("Game Over! Dig Again!!");
                             Intent i = new Intent("android.intent.action.NOTIFY");
                             i.putExtra("logged_in_user", user_name);
                             startActivity(i);
-
-//                            try {
-//                                wait(1500);
-//                            } catch (InterruptedException e) {
-//                                e.printStackTrace();
-//                            }
                             finish();
                         }
                     }
@@ -227,9 +190,7 @@ public class Displayword extends Activity {
 
         });
 
-        /*
-        * START Hint buttton : action when hint button is clicked
-        */
+        //* START Hint buttton : action when hint button is clicked
         Button hint = new Button(this);
         hint = (Button) findViewById(R.id.Bhint);
         final TextView tvhinttext = (TextView) findViewById(R.id.Tvhinttext);
@@ -246,23 +207,17 @@ public class Displayword extends Activity {
                 tvhinttext.setText(hint_statement);
             }
         });
-        /*
-        * END Hint buttton : action when hint button is clicked
-        */
+        //* END Hint buttton : action when hint button is clicked
     }
 
-    /*
-    * START BACK buttton : action when hint button is clicked
-    */
+    //* START BACK buttton : action when hint button is clicked
     public void onclick(View view)
     {
         //* Method invoked when BACK button is clicked
         restart();
         this.finish();
     }
-    /*
-    * END BACK buttton : action when hint button is clicked
-    */
+    //* END BACK buttton : action when hint button is clicked
 
     public String blankLetter(String word)
     {
@@ -292,9 +247,8 @@ public class Displayword extends Activity {
 
     public int randomNumber(int limit)
     {
-    /*
-    * This method generates random numbers using math.random()
-    */
+
+        //* This method generates random numbers using math.random()
         int random = (int )(Math.random() * limit + 1);
         return random;
     }
@@ -322,9 +276,6 @@ public class Displayword extends Activity {
 
     public void restart()
     {
-        /*
-        * This method defines the actions when back button is clicked.
-        */
         //*Attempt to reset flags
         final FetchDB mydb = new FetchDB(this);
         Thread runthis = new Thread() {
@@ -345,10 +296,6 @@ public class Displayword extends Activity {
         };
 
         runthis.start();
-
-//        Intent i =new Intent(this,MainActivity.class);
-//        startActivity(i);
-
     }
 
     @Override

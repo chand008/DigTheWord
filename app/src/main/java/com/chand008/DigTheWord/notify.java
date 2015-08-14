@@ -30,16 +30,15 @@ public class notify extends ActionBarActivity {
         if (xtra != null)
         {
             user_name = xtra.getString("logged_in_user");
-//            levelno=  xtra.getInt("level_no");
-
         }
         else
         {
             user_name = "Guest";
-            //   levelno=1;
         }
         TextView Tvusername = (TextView) findViewById(R.id.Tvusername);
         Tvusername.setText(user_name);
+
+        //* If the user clicks OK start the game from level 1 again
         Button b = (Button) findViewById(R.id.ok);
         b.setOnClickListener(new View.OnClickListener() {
             //*ACTION WHEN hint BUTTON IS CLICKED
