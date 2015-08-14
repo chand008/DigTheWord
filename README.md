@@ -31,6 +31,9 @@ http://developer.android.com/tools/studio/index.html
             <br>The source code can be found at the following repository Link for repository:<br>
             https://github.com/chand008/DigTheWord<br>
             
+**Latest .apk file:**
+            <br>https://github.com/chand008/DigTheWord/blob/master/app/app-release.apk <br>
+            
 **Developer Documents:**
             <br>Please click on the links below to find developer documents Github Manual: <br>
             https://github.com/chand008/DigTheWord/blob/master/Docs/githubmanual.pdf <br>
@@ -42,7 +45,7 @@ http://developer.android.com/tools/studio/index.html
 
 **Build Instruction:**
             <br>Click on the link below to find Build Instructions:<br>
-            
+            https://github.com/chand008/DigTheWord/blob/master/Docs/InstallationGuideForDevelopers.pdf<br>
 
 **User Manual**
             <br>https://github.com/chand008/DigTheWord/blob/master/Docs/usermanual.pdf <br>
@@ -51,11 +54,11 @@ http://developer.android.com/tools/studio/index.html
            <br> Android device.<br>
             
 **Future Enhancements:**
-          <br> 1.  Create categories for words like Science and technology, History etc.<br>
-          <br> 2.  Create a screen after the login(main activity) for users to be able to select the level they wish to play.<br>
-         <br>  3.  Incorporate the time limit for guessing the word.<br>
-         <br>  4.  Updation of score based on time and use of hints.<br>
-          <br> 5.  Improve the look of the app.<br>
+          <br> 1.  Create categories for words like Science and technology, History etc.
+          <br> 2.  Create a screen after the login(main activity) for users to be able to select the level they wish to play.
+         <br>  3.  Incorporate the time limit for guessing the word.
+         <br>  4.  Updation of score based on time and use of hints.
+          <br> 5.  Improve the look of the app.
           <br> 6. Upgrade to grid type challenge screen, from free text screen.<br>
             
 **Issue Tracker/Bug Tracker:**
@@ -64,5 +67,5 @@ http://developer.android.com/tools/studio/index.html
             
 **Final Presentation:**
 
-<br> https://github.com/chand008/DigTheWord/blob/master/Docs/oss%20presentatn%202.pdf <br>
+<br> https://github.com/chand008/DigTheWord/blob/master/Docs/oss%20presentatn%202.pptx <br>
 
