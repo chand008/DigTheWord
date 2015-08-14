@@ -33,19 +33,19 @@ http://developer.android.com/tools/studio/index.html
             
 **Developer Documents:**
             <br>Please click on the links below to find developer documents Github Manual: <br>
-            
+            https://github.com/chand008/DigTheWord/blob/master/Docs/githubmanual.pdf <br>
             
             
 **User Documents:**
            <br> Please click on the links below to find user documents: Guide for .apk installation:<br>
-
+            https://github.com/chand008/DigTheWord/blob/master/Docs/Guideforapkinstallation.pdf <br>            
 
 **Build Instruction:**
             <br>Click on the link below to find Build Instructions:<br>
-
+            
 
 **User Manual**
-
+            <br>https://github.com/chand008/DigTheWord/blob/master/Docs/usermanual.pdf <br>
 
 **Pre-requisites**
            <br> Android device.<br>
@@ -64,5 +64,5 @@ http://developer.android.com/tools/studio/index.html
             
 **Final Presentation:**
 
-
+<br> https://github.com/chand008/DigTheWord/blob/master/Docs/oss%20presentatn%202.pdf <br>
 
